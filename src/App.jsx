@@ -10,6 +10,7 @@ import HelpLayout from "./layout/helplayout";
 import RootLayout from "./layout/layout";
 import Home from "./pages/Home";
 import About from "./pages/about";
+import NotFound from "./pages/Help/notfound";
 function App() {
   const rout = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +22,7 @@ function App() {
           <Route path="faq" element={<Faq />}></Route>
           <Route path="contact" element={<Contact />}></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Route>
     )
   );
