@@ -4,6 +4,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import CareerDetails from "./pages/careers/careerdetail";
 import { careersLoader } from "./pages/careers/career";
 import CareersLayout from "./layout/careerlayout";
 import Careers from "./pages/careers/career";
@@ -28,6 +29,11 @@ function App() {
 
         <Route path="careers" element={<CareersLayout />}>
           <Route index loader={careersLoader} element={<Careers />}></Route>
+          <Route
+            path=":id"
+            loader={careersLoader}
+            element={<CareerDetails />}
+          ></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Route>
