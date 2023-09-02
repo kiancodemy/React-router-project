@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import axios from "axios";
+
 export default function Careers() {
   const careers = useLoaderData();
 
@@ -15,9 +15,10 @@ export default function Careers() {
   );
 }
 
-// data loader
 export const careersLoader = async () => {
-  const res = await axios.get("http://localhost:4000/careers");
-
-  return res.data;
+  const res = await fetch("http://localhost:4000/careers");
+  if (!res.ok) {
+    throw Error("cant fetch data");
+  }
+  return res.json();
 };

@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import axios from "axios";
+
 export default function CareerDetails() {
   const { id } = useParams();
   const career = useLoaderData();
@@ -23,7 +24,10 @@ export default function CareerDetails() {
 export const careerDetailsLoader = async ({ params }) => {
   const { id } = params;
 
-  const res = await axios.get("http://localhost:4000/careers/" + id);
+  const res = await fetch("http://localhost:4000/careers/" + id);
+  if (!res.ok) {
+    throw Error("cant find the career");
+  }
 
-  return res.data;
+  return res.json();
 };

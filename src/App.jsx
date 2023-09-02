@@ -4,6 +4,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import Eror from "./pages/careers/eror";
 import CareerDetails from "./pages/careers/careerdetail";
 import { careersLoader } from "./pages/careers/career";
 import { careerDetailsLoader } from "./pages/careers/careerdetail";
@@ -29,7 +30,11 @@ function App() {
           <Route path="contact" element={<Contact />}></Route>
         </Route>
 
-        <Route path="careers" element={<CareersLayout />}>
+        <Route
+          path="careers"
+          element={<CareersLayout />}
+          errorElement={<Eror></Eror>}
+        >
           <Route index loader={careersLoader} element={<Careers />}></Route>
           <Route
             path=":id"
