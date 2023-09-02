@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import CareerDetails from "./pages/careers/careerdetail";
 import { careersLoader } from "./pages/careers/career";
+import { careerDetailsLoader } from "./pages/careers/careerdetail";
 import CareersLayout from "./layout/careerlayout";
 import Careers from "./pages/careers/career";
 import Faq from "./pages/Help/faq";
@@ -14,6 +15,7 @@ import HelpLayout from "./layout/helplayout";
 import RootLayout from "./layout/layout";
 import Home from "./pages/Home";
 import About from "./pages/about";
+
 import NotFound from "./pages/Help/notfound";
 function App() {
   const rout = createBrowserRouter(
@@ -31,7 +33,7 @@ function App() {
           <Route index loader={careersLoader} element={<Careers />}></Route>
           <Route
             path=":id"
-            loader={careersLoader}
+            loader={careerDetailsLoader}
             element={<CareerDetails />}
           ></Route>
         </Route>

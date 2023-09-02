@@ -1,8 +1,8 @@
-import { useLoaderData, useParams } from 'react-router-dom'
-
+import { useLoaderData, useParams } from "react-router-dom";
+import axios from "axios";
 export default function CareerDetails() {
-  const { id } = useParams()
-  const career = useLoaderData()
+  const { id } = useParams();
+  const career = useLoaderData();
 
   return (
     <div className="career-details">
@@ -10,17 +10,20 @@ export default function CareerDetails() {
       <p>Starting salary: {career.salary}</p>
       <p>Location: {career.location}</p>
       <div className="details">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed sunt ipsam quam assumenda quasi ipsa facilis laborum rerum voluptatem!</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sed
+          sunt ipsam quam assumenda quasi ipsa facilis laborum rerum voluptatem!
+        </p>
       </div>
     </div>
-  )
+  );
 }
 
 // data loader
 export const careerDetailsLoader = async ({ params }) => {
   const { id } = params;
 
-  const res = await fetch('http://localhost:4000/careers/' + id)
+  const res = await axios.get("http://localhost:4000/careers/" + id);
 
-  return res.json()
-}
+  return res.data;
+};
