@@ -20,11 +20,6 @@ import About from "./pages/about";
 
 import NotFound from "./pages/Help/notfound";
 function App() {
-  useEffect(() => {
-    alert(
-      `Hello, you can't use career section  because it needs to fetch data from server`
-    );
-  }, []);
   const rout = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
